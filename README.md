@@ -1,7 +1,7 @@
-# Angular-Open-Gallery 🖼️
+# Open-Gallery 🖼️
 32.01
 
-Powered by [Bootstrap](https://getbootstrap.com/) & [Firebase](https://firebase.google.com/)
+The project used [Bootstrap](https://getbootstrap.com/) & [Firebase](https://firebase.google.com/) 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
