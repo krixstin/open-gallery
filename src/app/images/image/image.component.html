@@ -1,30 +1,39 @@
 <div class ="card" style ="width:25rem">
     <div class="card-body">
-<form [formGroup]="formTemplate">
+        <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+            
+            <!-- image -->
+            <div class="text-center">
+                <img [src]="imgSrc" width="350px" height="250px" alt="placeholder image"
+                (click)="fileUploader.click()">
+            </div>
+            <div class="form-group">
+                <label>Select file to upload</label>
+                <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+                (change)="showPreview($event)">
+                <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">This field is required</div>
+            </div><br>
 
-    <div class="form-group">
-        <label>Select file to upload</label>
-        <input type="file" class="form-control" formControlName="imageUrl">
-    </div>
-    <div class="form-group">
-        <input  class="form-control" formControlName="caption" placeholder="Caption">
-    </div>
-    <div class="form-group">
-        <label>Select file to upload</label>
-        <input type="file" class="form-control" formControlName="imageUrl">
-    </div>
-    <div class="form-group">
-        <select class="from-control" formControlName="category">
-            <option value="People">People</option>
-            <option value="Nature">Nature</option>
-            <option value="Any">Any</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success float-right">Submit</button>
-    </div>
+            <!-- caption -->
+            <div class="form-group">
+                <input class="form-control" formControlName="caption" placeholder="Caption">
+                <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">This field is required</div>
+            </div><br>
 
-</form>
+            <!-- category -->
+            <div class="form-group">
+                <select class="form-control" formControlName="category">
+                    <option value="People">People</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Any">Any</option>
+                </select>
+            </div><br>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success float-end">Submit</button>
+            </div>
+
+        </form>
     </div>
 
 </div>

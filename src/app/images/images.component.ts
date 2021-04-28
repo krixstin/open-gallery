@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ImageService } from '../shared/image.service';
 
 @Component({
   selector: 'app-images',
@@ -8,9 +9,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ImagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ImageService) { }
 
   ngOnInit(): void {
+    this.service.getImageDetailList(); //list property initialized
   }
 
 }
